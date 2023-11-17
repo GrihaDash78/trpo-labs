@@ -1,6 +1,7 @@
 import sqlite3
 import sys
 import random
+import csv
 
 from shutil import copy2
 
@@ -18,11 +19,11 @@ def get_genres(cur) -> map:
 
 #класс главного окна
 class MyWidget(QMainWindow):
+    #конструктор
     def __init__(self):
         super().__init__()
         uic.loadUi("ui/task11.ui", self)
         
-		#назначаем обработчик
         self.pB_AddFilm.clicked.connect(self.add_film) #назначаем обработчик кнопки
         self.pB_EditFilm.clicked.connect(self.edit_film) #назначаем обработчик кнопки
         self.pB_DelFilm.clicked.connect(self.del_film) #назначаем обработчик кнопки
