@@ -1,15 +1,15 @@
 import sqlite3
 import sys
+import random
 
 from shutil import copy2
 
 from PyQt5 import uic
-from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QDialog, QInputDialog, QTabWidget
 from PyQt5.QtWidgets import QMainWindow, QTableWidget, QTableWidgetItem, QMessageBox, QComboBox
 
 #функция получения словаря жанров
-def get_genres(cur):
+def get_genres(cur) -> map:
     receive = cur.execute("SELECT * FROM genres").fetchall() #запрашиваем полную таблицу
     res = {} #возвращаемый словарь
     for row in enumerate(receive): #из каждой строки
@@ -22,6 +22,7 @@ class MyWidget(QMainWindow):
         super().__init__()
         uic.loadUi("ui/task11.ui", self)
         
+		#назначаем обработчик
         self.pB_AddFilm.clicked.connect(self.add_film) #назначаем обработчик кнопки
         self.pB_EditFilm.clicked.connect(self.edit_film) #назначаем обработчик кнопки
         self.pB_DelFilm.clicked.connect(self.del_film) #назначаем обработчик кнопки
