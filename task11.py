@@ -1,12 +1,12 @@
 import sqlite3
 import sys
-import random
+from random import random
 
 from shutil import copy2
 
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QDialog, QInputDialog, QTabWidget
-from PyQt5.QtWidgets import QMainWindow, QTableWidget, QTableWidgetItem, QMessageBox, QComboBox
+from PyQt5.QtWidgets import QApplication, QDialog, QInputDialog
+from PyQt5.QtWidgets import QMainWindow, QTableWidget, QTableWidgetItem, QMessageBox
 
 #функция получения словаря жанров
 def get_genres(cur) -> map:
@@ -22,7 +22,7 @@ class MyWidget(QMainWindow):
         super().__init__()
         uic.loadUi("ui/task11.ui", self)
         
-		#назначаем обработчик
+		#назначаем обработчик для кнопок
         self.pB_AddFilm.clicked.connect(self.add_film) #назначаем обработчик кнопки
         self.pB_EditFilm.clicked.connect(self.edit_film) #назначаем обработчик кнопки
         self.pB_DelFilm.clicked.connect(self.del_film) #назначаем обработчик кнопки
