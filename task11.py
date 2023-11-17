@@ -1,7 +1,7 @@
 import sqlite3
 import sys
 from random import random
-
+import csv
 from shutil import copy2
 
 from PyQt5 import uic
@@ -18,6 +18,7 @@ def get_genres(cur) -> map:
 
 #класс главного окна
 class MyWidget(QMainWindow):
+    #конструктор
     def __init__(self):
         super().__init__()
         uic.loadUi("ui/task11.ui", self)
